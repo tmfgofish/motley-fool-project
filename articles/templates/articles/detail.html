@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+{% block head %}
+{% endblock %}
+{% block title %}{{article.promo}}{% endblock %}
+{% block content %}
+<div class="top-wrapper">
+    <div class="container">
+        {% include "nav.html" %}
+        <hr>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title card-headline-bold article-headline">{{article.headline}}</h3>
+                        <p class="text-muted">
+                            {{article.authors.0.byline}} - {{article.created|custom_date:"F j, Y"}}
+                        </p> 
+                        {{article.body | safe}}
+                    </div>
+                </div>
+            </div>
+            
+            {% include "quotes_sidebar.html" with quotes=quotes %}
+
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for comment in comments %}
+            <div class="card">
+                <div class="card-body">
+                    {{comment.text}}
+                    <hr>
+                    <h6 class="card-subtitle mb-2 text-muted">{{comment.created_date}} by Anonymous User </h6>
+                </div>
+            </div>
+            {% endfor %}
+            <br>
+            {% include "comments/comments.html" with article_uuid=article.uuid %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/shuffle.js' %}"></script> 
+
+{% endblock %}

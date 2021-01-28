@@ -1,0 +1,9 @@
+<form method="POST" action="{% url 'comment-view' article.uuid %}">
+{% csrf_token %}
+<div class="form-group">
+    <label for="comment">Contribute to the discussion</label>
+    <textarea class="form-control" name="comment" 
+              id="comment" rows="3" placeholder="Add new comment" required></textarea>
+</div>
+<button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>

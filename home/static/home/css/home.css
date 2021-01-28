@@ -1,0 +1,20 @@
+.article-thumbnail {
+    width: 100%;
+    height: 200px;
+}
+
+.article-headline {
+    margin-top: 20px;
+    margin-bottom:5px;
+}
+
+.headline-thumbnail {
+    width: 300px;
+    height: 300px;
+}
+
+.bottom-align-text {
+    position: absolute;
+    margin-bottom:0px;
+    bottom: 0;
+}

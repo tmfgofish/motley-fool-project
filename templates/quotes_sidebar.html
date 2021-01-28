@@ -1,0 +1,16 @@
+<aside class="col-md-4 position-sticky sticky-top">
+    <div class="p-3 mb-3 bg-white rounded">
+        <h4>Stocks</h4>
+        <ul class="list-group stock-list">
+            {% for quote in quotes %}
+            <li class="list-group-item stocks">
+                <h5>{{quote.CompanyName}}</h5>
+                <h6>TICK: {{quote.Symbol}}</h6>
+                <h6>${{quote.CurrentPrice.Amount}} (${{quote.Change.Amount|floatformat:2}})</h6>
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="button" onclick="shuffleList('.stock-list')"
+            class="btn btn-outline-dark btn-block">Shuffle Quotes</button>
+    </div>
+</aside>
